@@ -51,5 +51,12 @@ axis(side = 1,las=2,labels = names(Labels),
 
 getSelectedAttributes(final_boruta, withTentative = F) # 최종적으로 중요하다고 판단된 변수는 총 7개! 
 
+boruta_df = attStats(final_boruta)
+class(boruta_df) ## [1] "data.frame"
+print(boruta_df)# attStats 함수는 boruta 알고리즘의 결과를 데이터 프레임으로 만들어주고, 각 변수에 대한 중요도와 hist 수, 판단 결과를 생성한다. 
 
+### paramater
+# - maxRuns : 랜덤포레스트 최대 실행 횟수, default = 100, tentative 변수가 남으면 횟수를 늘려도 됨. 
+# - doTrace: 0 = 추적하지 않음, 1 = 변수라 판정되면 결과를 즉각 보고함, 2 = 각 반복에서 hit+1을 추가로 보고함. 
+# - holdHistoy : True(dafault) = 중요도를 구하는 모든 과정을 저장하며 ImpHistory 요소를 통해 출력됨. 출력된 결과는 각 반복에 대한 변수의 중요도이며 기각된 변수, 즉 중요한 변수는 -inf로 표시됨. 
 
